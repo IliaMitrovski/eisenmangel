@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ilia — Visual Collage Artist</title>
-<meta name="description" content="Ilia — Visual Collage Artist. Portfolio 6-Week Challenge.">
+<meta name="description" content="Ilia">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -21,7 +21,7 @@
   #ant-cursor {
     position: fixed;
     top: 0; left: 0;
-    width: 60px; height: 38px;
+    width: 34px; height: 22px;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -196,18 +196,32 @@
     opacity: 0.5;
   }
 
-  /* ── PROJECT IMAGES (full-bleed, gestapelt, unbeschnitten) ── */
+  /* ── PROJECT IMAGES (kleine, schräge Foto-Karten) ── */
   .project-images {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    align-items: center;
+  }
+  .photo-card {
+    width: min(58%, 560px);
+    background: #f0ece4;
+    padding: 10px 10px 14px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+    margin-top: -1.5rem;
+    transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.5s;
+  }
+  .photo-card:first-child { margin-top: 0; }
+  .photo-card:nth-child(odd)  { transform: rotate(-3deg); }
+  .photo-card:nth-child(even) { transform: rotate(2.5deg); }
+  .photo-card:hover {
+    transform: rotate(0deg) scale(1.04);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    z-index: 2;
   }
   .project-images img {
     width: 100%;
     height: auto;
     display: block;
-    will-change: transform;
-    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
     filter: grayscale(15%);
   }
   .gallery-hint {
@@ -325,20 +339,18 @@
 <body>
 
 <!-- ANT SVG CURSOR -->
-<svg id="ant-cursor" viewBox="0 0 60 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <line id="ll1" x1="22" y1="19" x2="6"  y2="10" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
-  <line id="ll2" x1="20" y1="20" x2="3"  y2="20" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
-  <line id="ll3" x1="22" y1="22" x2="6"  y2="31" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
-  <line id="lr1" x1="38" y1="19" x2="54" y2="10" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
-  <line id="lr2" x1="40" y1="20" x2="57" y2="20" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
-  <line id="lr3" x1="38" y1="22" x2="54" y2="31" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
-  <ellipse cx="16" cy="24" rx="9"  ry="11" fill="#f0ece4"/>
-  <ellipse cx="30" cy="19" rx="7"  ry="7"  fill="#f0ece4"/>
-  <ellipse cx="44" cy="15" rx="6"  ry="6"  fill="#f0ece4"/>
-  <line x1="47" y1="10" x2="54" y2="3"  stroke="#f0ece4" stroke-width="1.2" stroke-linecap="round"/>
-  <line x1="45" y1="10" x2="50" y2="2"  stroke="#f0ece4" stroke-width="1.2" stroke-linecap="round"/>
-  <circle cx="54" cy="2.5" r="1.8" fill="#f0ece4"/>
-  <circle cx="50" cy="1.5" r="1.8" fill="#f0ece4"/>
+<svg id="ant-cursor" viewBox="0 0 40 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <line id="ll1" x1="15" y1="13" x2="4"  y2="7"  stroke="#f0ece4" stroke-width="1" stroke-linecap="round"/>
+  <line id="ll2" x1="13" y1="13" x2="2"  y2="13" stroke="#f0ece4" stroke-width="1" stroke-linecap="round"/>
+  <line id="lr1" x1="25" y1="13" x2="36" y2="7"  stroke="#f0ece4" stroke-width="1" stroke-linecap="round"/>
+  <line id="lr2" x1="27" y1="13" x2="38" y2="13" stroke="#f0ece4" stroke-width="1" stroke-linecap="round"/>
+  <ellipse cx="11" cy="16" rx="6" ry="7" fill="#f0ece4"/>
+  <ellipse cx="20" cy="13" rx="5" ry="5" fill="#f0ece4"/>
+  <ellipse cx="29" cy="10" rx="4" ry="4" fill="#f0ece4"/>
+  <line x1="31" y1="7" x2="36" y2="2" stroke="#f0ece4" stroke-width="0.8" stroke-linecap="round"/>
+  <line x1="30" y1="7" x2="33" y2="1" stroke="#f0ece4" stroke-width="0.8" stroke-linecap="round"/>
+  <circle cx="36" cy="2" r="1.2" fill="#f0ece4"/>
+  <circle cx="33" cy="1" r="1.2" fill="#f0ece4"/>
 </svg>
 
 <!-- NAV -->
@@ -384,7 +396,7 @@
       <span class="project-tag">Collage</span>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/klo-03.jpg" alt="Projekt 01">
+      <div class="photo-card"><img class="skew-img" src="images/web/klo-03.jpg" alt="Projekt 01"></div>
     </div>
   </div>
 
@@ -397,7 +409,7 @@
       <span class="project-tag">Digital Art</span>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/Auge_Fenster.jpg" alt="Projekt 02">
+      <div class="photo-card"><img class="skew-img" src="images/web/Auge_Fenster.jpg" alt="Projekt 02"></div>
     </div>
   </div>
 
@@ -410,7 +422,7 @@
       <span class="project-tag">Mixed Media</span>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/Chip_Mezyl.jpg" alt="Projekt 03">
+      <div class="photo-card"><img class="skew-img" src="images/web/Chip_Mezyl.jpg" alt="Projekt 03"></div>
     </div>
   </div>
 
@@ -423,7 +435,7 @@
       <span class="project-tag">Photoshop</span>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/Krake_Mund.jpg" alt="Projekt 04">
+      <div class="photo-card"><img class="skew-img" src="images/web/Krake_Mund.jpg" alt="Projekt 04"></div>
     </div>
   </div>
 
@@ -436,7 +448,7 @@
       <span class="project-tag">Photoshop</span>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/Wasser_Mund.jpg" alt="Projekt 05">
+      <div class="photo-card"><img class="skew-img" src="images/web/Wasser_Mund.jpg" alt="Projekt 05"></div>
     </div>
   </div>
 
@@ -449,7 +461,7 @@
       <span class="project-tag">Collage</span>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/pilz_phone.jpg" alt="Projekt 06">
+      <div class="photo-card"><img class="skew-img" src="images/web/pilz_phone.jpg" alt="Projekt 06"></div>
     </div>
   </div>
 
@@ -463,13 +475,13 @@
       <div class="gallery-hint">7 Bilder</div>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/Gabel_menge.jpg" alt="Gabel-Serie 1">
-      <img class="skew-img" src="images/web/Gabel_Facetoface.jpg" alt="Gabel-Serie 2">
-      <img class="skew-img" src="images/web/Gabel_koposetion.jpg" alt="Gabel-Serie 3">
-      <img class="skew-img" src="images/web/Gabel_Kreuz.jpg" alt="Gabel-Serie 4">
-      <img class="skew-img" src="images/web/Gabel_strom.jpg" alt="Gabel-Serie 5">
-      <img class="skew-img" src="images/web/Gabel_Drei.jpg" alt="Gabel-Serie 6">
-      <img class="skew-img" src="images/web/Gabel_4.jpg" alt="Gabel-Serie 7">
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_menge.jpg" alt="Gabel-Serie 1"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_Facetoface.jpg" alt="Gabel-Serie 2"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_koposetion.jpg" alt="Gabel-Serie 3"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_Kreuz.jpg" alt="Gabel-Serie 4"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_strom.jpg" alt="Gabel-Serie 5"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_Drei.jpg" alt="Gabel-Serie 6"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Gabel_4.jpg" alt="Gabel-Serie 7"></div>
     </div>
   </div>
 
@@ -483,9 +495,9 @@
       <div class="gallery-hint">3 Bilder</div>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/bananne_4.jpg" alt="Bananne-Serie 1">
-      <img class="skew-img" src="images/web/Bananne_Kreis.jpg" alt="Bananne-Serie 2">
-      <img class="skew-img" src="images/web/Bananne.jpg" alt="Bananne-Serie 3">
+      <div class="photo-card"><img class="skew-img" src="images/web/bananne_4.jpg" alt="Bananne-Serie 1"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Bananne_Kreis.jpg" alt="Bananne-Serie 2"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/Bananne.jpg" alt="Bananne-Serie 3"></div>
     </div>
   </div>
 
@@ -499,10 +511,10 @@
       <div class="gallery-hint">4 Bilder</div>
     </div>
     <div class="project-images">
-      <img class="skew-img" src="images/web/IMG_0077.jpg" alt="Phone-Serie 1">
-      <img class="skew-img" src="images/web/IMG_3368.jpg" alt="Phone-Serie 2">
-      <img class="skew-img" src="images/web/IMG_3404.jpg" alt="Phone-Serie 3">
-      <img class="skew-img" src="images/web/IMG_5849.jpg" alt="Phone-Serie 4">
+      <div class="photo-card"><img class="skew-img" src="images/web/IMG_0077.jpg" alt="Phone-Serie 1"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/IMG_3368.jpg" alt="Phone-Serie 2"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/IMG_3404.jpg" alt="Phone-Serie 3"></div>
+      <div class="photo-card"><img class="skew-img" src="images/web/IMG_5849.jpg" alt="Phone-Serie 4"></div>
     </div>
   </div>
 </section>
@@ -561,26 +573,20 @@ document.addEventListener('mousemove', e => {
 
 const ll1 = document.getElementById('ll1');
 const ll2 = document.getElementById('ll2');
-const ll3 = document.getElementById('ll3');
 const lr1 = document.getElementById('lr1');
 const lr2 = document.getElementById('lr2');
-const lr3 = document.getElementById('lr3');
 
 function animateLegs(dx, dy) {
   const speed = Math.sqrt(dx * dx + dy * dy);
-  legPhase += Math.min(speed * 0.18, 0.6);
+  legPhase += Math.min(speed * 0.12, 0.4);
   const s = Math.sin(legPhase);
-  const a = 5;
-  ll1.setAttribute('x2', 6  + s * a);
-  ll1.setAttribute('y2', 10 - s * a);
-  ll2.setAttribute('x2', 3  + s * a * 0.4);
-  ll3.setAttribute('x2', 6  - s * a);
-  ll3.setAttribute('y2', 31 + s * a);
-  lr1.setAttribute('x2', 54 - s * a);
-  lr1.setAttribute('y2', 10 + s * a);
-  lr2.setAttribute('x2', 57 - s * a * 0.4);
-  lr3.setAttribute('x2', 54 + s * a);
-  lr3.setAttribute('y2', 31 - s * a);
+  const a = 2.5;
+  ll1.setAttribute('x2', 4  + s * a);
+  ll1.setAttribute('y2', 7  - s * a);
+  ll2.setAttribute('x2', 2  + s * a * 0.4);
+  lr1.setAttribute('x2', 36 - s * a);
+  lr1.setAttribute('y2', 7  + s * a);
+  lr2.setAttribute('x2', 38 - s * a * 0.4);
 }
 
 function tick() {
