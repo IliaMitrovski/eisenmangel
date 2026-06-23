@@ -188,6 +188,35 @@
     transform: scale(1.05) skewY(0deg);
   }
 
+  /* ── PROJECT GALLERY (mehrere Bilder pro Projekt) ── */
+  .project-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    aspect-ratio: 4/3;
+    background: #151515;
+    gap: 2px;
+    scrollbar-width: thin;
+  }
+  .project-gallery img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: start;
+    display: block;
+    will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    filter: grayscale(15%);
+  }
+  .gallery-hint {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-top: 0.8rem;
+  }
+
   .project-info { padding: 0.5rem 0; }
   .project-num {
     font-size: 10px;
@@ -385,13 +414,7 @@
   <!-- PROJECT 01 -->
   <div class="project-item">
     <div class="project-img-wrap">
-      <!--
-        BILD ERSETZEN:
-        Ersetze das src-Attribut unten mit dem Pfad zu deinem Bild.
-        Beispiel: src="images/projekt1.jpg"
-        Lege deine Bilder in einen Ordner namens "images" neben dieser index.html.
-      -->
-      <img class="skew-img" src="images/projekt1.jpg" alt="Projekt 01">
+      <img class="skew-img" src="images/web/klo-03.jpg" alt="Projekt 01">
     </div>
     <div class="project-info">
       <div class="project-num">01</div>
@@ -404,7 +427,7 @@
   <!-- PROJECT 02 -->
   <div class="project-item reverse">
     <div class="project-img-wrap">
-      <img class="skew-img" src="images/projekt2.jpg" alt="Projekt 02">
+      <img class="skew-img" src="images/web/Auge_Fenster.jpg" alt="Projekt 02">
     </div>
     <div class="project-info">
       <div class="project-num">02</div>
@@ -417,7 +440,7 @@
   <!-- PROJECT 03 -->
   <div class="project-item">
     <div class="project-img-wrap">
-      <img class="skew-img" src="images/projekt3.jpg" alt="Projekt 03">
+      <img class="skew-img" src="images/web/Chip_Mezyl.jpg" alt="Projekt 03">
     </div>
     <div class="project-info">
       <div class="project-num">03</div>
@@ -430,7 +453,7 @@
   <!-- PROJECT 04 -->
   <div class="project-item reverse">
     <div class="project-img-wrap">
-      <img class="skew-img" src="images/projekt4.jpg" alt="Projekt 04">
+      <img class="skew-img" src="images/web/Krake_Mund.jpg" alt="Projekt 04">
     </div>
     <div class="project-info">
       <div class="project-num">04</div>
@@ -440,10 +463,10 @@
     </div>
   </div>
 
-  <!-- PROJECT 05 — optional, einfach löschen wenn nicht gebraucht -->
+  <!-- PROJECT 05 -->
   <div class="project-item">
     <div class="project-img-wrap">
-      <img class="skew-img" src="images/projekt5.jpg" alt="Projekt 05">
+      <img class="skew-img" src="images/web/Wasser_Mund.jpg" alt="Projekt 05">
     </div>
     <div class="project-info">
       <div class="project-num">05</div>
@@ -453,16 +476,69 @@
     </div>
   </div>
 
-  <!-- PROJECT 06 — optional -->
+  <!-- PROJECT 06 -->
   <div class="project-item reverse">
     <div class="project-img-wrap">
-      <img class="skew-img" src="images/projekt6.jpg" alt="Projekt 06">
+      <img class="skew-img" src="images/web/pilz_phone.jpg" alt="Projekt 06">
     </div>
     <div class="project-info">
       <div class="project-num">06</div>
       <h3 class="project-title">Dein<br>Titel</h3>
       <p class="project-desc">Kurze Beschreibung deiner Arbeit. Was war das Thema, die Idee dahinter?</p>
       <span class="project-tag">Collage</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 07 — Gabel-Serie -->
+  <div class="project-item">
+    <div class="project-gallery">
+      <img class="skew-img" src="images/web/Gabel_menge.jpg" alt="Gabel-Serie 1">
+      <img class="skew-img" src="images/web/Gabel_Facetoface.jpg" alt="Gabel-Serie 2">
+      <img class="skew-img" src="images/web/Gabel_koposetion.jpg" alt="Gabel-Serie 3">
+      <img class="skew-img" src="images/web/Gabel_Kreuz.jpg" alt="Gabel-Serie 4">
+      <img class="skew-img" src="images/web/Gabel_strom.jpg" alt="Gabel-Serie 5">
+      <img class="skew-img" src="images/web/Gabel_Drei.jpg" alt="Gabel-Serie 6">
+      <img class="skew-img" src="images/web/Gabel_4.jpg" alt="Gabel-Serie 7">
+    </div>
+    <div class="project-info">
+      <div class="project-num">07</div>
+      <h3 class="project-title">Gabel<br>Serie</h3>
+      <p class="project-desc">Kurze Beschreibung deiner Arbeit. Was war das Thema, die Idee dahinter?</p>
+      <span class="project-tag">Collage</span>
+      <div class="gallery-hint">7 Bilder — swipe</div>
+    </div>
+  </div>
+
+  <!-- PROJECT 08 — Bananne-Serie -->
+  <div class="project-item reverse">
+    <div class="project-gallery">
+      <img class="skew-img" src="images/web/bananne_4.jpg" alt="Bananne-Serie 1">
+      <img class="skew-img" src="images/web/Bananne_Kreis.jpg" alt="Bananne-Serie 2">
+      <img class="skew-img" src="images/web/Bananne.jpg" alt="Bananne-Serie 3">
+    </div>
+    <div class="project-info">
+      <div class="project-num">08</div>
+      <h3 class="project-title">Bananne<br>Serie</h3>
+      <p class="project-desc">Kurze Beschreibung deiner Arbeit. Was war das Thema, die Idee dahinter?</p>
+      <span class="project-tag">Collage</span>
+      <div class="gallery-hint">3 Bilder — swipe</div>
+    </div>
+  </div>
+
+  <!-- PROJECT 09 — Phone-Serie -->
+  <div class="project-item">
+    <div class="project-gallery">
+      <img class="skew-img" src="images/web/IMG_0077.jpg" alt="Phone-Serie 1">
+      <img class="skew-img" src="images/web/IMG_3368.jpg" alt="Phone-Serie 2">
+      <img class="skew-img" src="images/web/IMG_3404.jpg" alt="Phone-Serie 3">
+      <img class="skew-img" src="images/web/IMG_5849.jpg" alt="Phone-Serie 4">
+    </div>
+    <div class="project-info">
+      <div class="project-num">09</div>
+      <h3 class="project-title">Dein<br>Titel</h3>
+      <p class="project-desc">Kurze Beschreibung deiner Arbeit. Was war das Thema, die Idee dahinter?</p>
+      <span class="project-tag">Photography</span>
+      <div class="gallery-hint">4 Bilder — swipe</div>
     </div>
   </div>
 </section>
