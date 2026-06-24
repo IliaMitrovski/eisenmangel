@@ -10,6 +10,11 @@
          url('fonts/Letters-Torn.woff') format('woff');
     font-display: swap;
   }
+  @font-face {
+    font-family: 'Bianzhidai Messy';
+    src: url('fonts/bianzhidai_noBG-Messy.woff') format('woff');
+    font-display: swap;
+  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -18,7 +23,7 @@
   body {
     background: #0a0a0a;
     color: #f0ece4;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'itc-avant-garde-gothic-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow-x: hidden;
   }
 
@@ -104,7 +109,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Letters Torn', 'Helvetica Neue', sans-serif;
+    font-family: 'Bianzhidai Messy', 'itc-avant-garde-gothic-pro', 'Helvetica Neue', sans-serif;
     font-size: clamp(140px, 22vw, 260px);
     font-weight: 900;
     letter-spacing: -0.05em;
@@ -115,7 +120,7 @@
     line-height: 1;
   }
   #cover .cover-title {
-    font-family: 'Letters Torn', 'Helvetica Neue', sans-serif;
+    font-family: 'Bianzhidai Messy', 'itc-avant-garde-gothic-pro', 'Helvetica Neue', sans-serif;
     font-size: clamp(64px, 10vw, 130px);
     font-weight: 900;
     letter-spacing: -0.04em;

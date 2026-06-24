@@ -24,9 +24,9 @@ const legsBBaseX2 = Array.from(legsB).map(leg => parseFloat(leg.getAttribute('x2
 
 function animateLegs(dx, dy) {
   const speed = Math.sqrt(dx * dx + dy * dy);
-  legPhase += Math.min(speed * 0.18, 0.55);
+  legPhase += Math.min(speed * 0.3, 1.1);
   const s = Math.sin(legPhase);
-  const a = 3;
+  const a = 4;
   legsA.forEach((leg, i) => leg.setAttribute('x2', legsABaseX2[i] + s * a));
   legsB.forEach((leg, i) => leg.setAttribute('x2', legsBBaseX2[i] - s * a));
 }
