@@ -196,7 +196,7 @@
     opacity: 0.5;
   }
 
-  /* ── PROJECT IMAGES (kleine, schräge Foto-Karten) ── */
+  /* ── PROJECT IMAGES (kleine, schräge, wackelnde Bilder) ── */
   .project-images {
     display: flex;
     flex-direction: column;
@@ -204,25 +204,21 @@
   }
   .photo-card {
     width: min(58%, 560px);
-    background: #f0ece4;
-    padding: 10px 10px 14px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
     margin-top: -1.5rem;
-    transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.5s;
+    animation: wobble 6s ease-in-out infinite;
   }
   .photo-card:first-child { margin-top: 0; }
-  .photo-card:nth-child(odd)  { transform: rotate(-3deg); }
-  .photo-card:nth-child(even) { transform: rotate(2.5deg); }
-  .photo-card:hover {
-    transform: rotate(0deg) scale(1.04);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-    z-index: 2;
+  .photo-card:nth-child(odd)  { --base-rot: -3deg; animation-delay: -1.3s; }
+  .photo-card:nth-child(even) { --base-rot: 2.5deg; animation-delay: -3.6s; }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(var(--base-rot)); }
+    50%      { transform: rotate(calc(var(--base-rot) * -0.6)); }
   }
   .project-images img {
     width: 100%;
     height: auto;
     display: block;
-    filter: grayscale(15%);
+    filter: grayscale(15%) drop-shadow(0 20px 35px rgba(0,0,0,0.5));
   }
   .gallery-hint {
     font-size: 10px;
