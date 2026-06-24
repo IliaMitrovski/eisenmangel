@@ -26,7 +26,7 @@
   #ant-cursor {
     position: fixed;
     top: 0; left: 0;
-    width: 40px; height: 20px;
+    width: 38px; height: 23px;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -209,16 +209,34 @@
     align-items: center;
   }
   .photo-card {
+    position: relative;
     width: min(58%, 560px);
     margin-top: -1.5rem;
-    animation: wobble 6s ease-in-out infinite;
+    animation: wobble 5s ease-in-out infinite;
   }
+  .photo-card::before,
+  .photo-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--img-url);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .photo-card::before { filter: sepia(1) hue-rotate(-50deg) saturate(6) brightness(1.1); }
+  .photo-card::after  { filter: sepia(1) hue-rotate(150deg) saturate(6) brightness(1.1); }
+  .photo-card:hover::before { opacity: 0.55; transform: translate(-4px, 1px); }
+  .photo-card:hover::after  { opacity: 0.55; transform: translate(4px, -1px); }
   .photo-card:first-child { margin-top: 0; }
-  .photo-card:nth-child(odd)  { --base-rot: -3deg; animation-delay: -1.3s; }
-  .photo-card:nth-child(even) { --base-rot: 2.5deg; animation-delay: -3.6s; }
+  .photo-card:nth-child(odd)  { --base-rot: -6deg; animation-delay: -1.3s; }
+  .photo-card:nth-child(even) { --base-rot: 5deg; animation-delay: -3.6s; }
   @keyframes wobble {
-    0%, 100% { transform: rotate(var(--base-rot)); }
-    50%      { transform: rotate(calc(var(--base-rot) * -0.6)); }
+    0%, 100%  { transform: rotate(var(--base-rot)) scale(1); }
+    50%       { transform: rotate(calc(var(--base-rot) * -0.8)) scale(1.02); }
   }
   .project-images img {
     width: 100%;

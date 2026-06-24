@@ -1,3 +1,9 @@
+// ── PHOTO CARD GLITCH (chromatic aberration on hover) ──
+document.querySelectorAll('.photo-card').forEach(card => {
+  const img = card.querySelector('img');
+  if (img) card.style.setProperty('--img-url', `url("${img.getAttribute('src')}")`);
+});
+
 // ── ANT CURSOR ──
 const ant = document.getElementById('ant-cursor');
 let mx = window.innerWidth / 2;
@@ -11,22 +17,18 @@ document.addEventListener('mousemove', e => {
   my = e.clientY;
 });
 
-const ll1 = document.getElementById('ll1');
-const ll2 = document.getElementById('ll2');
-const lr1 = document.getElementById('lr1');
-const lr2 = document.getElementById('lr2');
+const legsA = document.querySelectorAll('.leg-a');
+const legsB = document.querySelectorAll('.leg-b');
+const legsABaseX2 = Array.from(legsA).map(leg => parseFloat(leg.getAttribute('x2')));
+const legsBBaseX2 = Array.from(legsB).map(leg => parseFloat(leg.getAttribute('x2')));
 
 function animateLegs(dx, dy) {
   const speed = Math.sqrt(dx * dx + dy * dy);
-  legPhase += Math.min(speed * 0.12, 0.4);
+  legPhase += Math.min(speed * 0.18, 0.55);
   const s = Math.sin(legPhase);
-  const a = 2;
-  ll1.setAttribute('x2', 3  + s * a);
-  ll1.setAttribute('y2', 21 - s * a * 0.5);
-  ll2.setAttribute('x2', 7  + s * a * 0.5);
-  lr1.setAttribute('x2', 28 - s * a);
-  lr1.setAttribute('y2', 20 + s * a * 0.5);
-  lr2.setAttribute('x2', 23 - s * a * 0.5);
+  const a = 3;
+  legsA.forEach((leg, i) => leg.setAttribute('x2', legsABaseX2[i] + s * a));
+  legsB.forEach((leg, i) => leg.setAttribute('x2', legsBBaseX2[i] - s * a));
 }
 
 function tick() {
