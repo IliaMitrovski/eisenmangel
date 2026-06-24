@@ -20,13 +20,13 @@ function animateLegs(dx, dy) {
   const speed = Math.sqrt(dx * dx + dy * dy);
   legPhase += Math.min(speed * 0.12, 0.4);
   const s = Math.sin(legPhase);
-  const a = 2.5;
-  ll1.setAttribute('x2', 4  + s * a);
-  ll1.setAttribute('y2', 7  - s * a);
-  ll2.setAttribute('x2', 2  + s * a * 0.4);
-  lr1.setAttribute('x2', 36 - s * a);
-  lr1.setAttribute('y2', 7  + s * a);
-  lr2.setAttribute('x2', 38 - s * a * 0.4);
+  const a = 2;
+  ll1.setAttribute('x2', 3  + s * a);
+  ll1.setAttribute('y2', 21 - s * a * 0.5);
+  ll2.setAttribute('x2', 7  + s * a * 0.5);
+  lr1.setAttribute('x2', 28 - s * a);
+  lr1.setAttribute('y2', 20 + s * a * 0.5);
+  lr2.setAttribute('x2', 23 - s * a * 0.5);
 }
 
 function tick() {

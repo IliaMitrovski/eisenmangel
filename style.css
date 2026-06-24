@@ -26,7 +26,7 @@
   #ant-cursor {
     position: fixed;
     top: 0; left: 0;
-    width: 34px; height: 22px;
+    width: 40px; height: 20px;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -104,7 +104,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Letters Lavish', 'Helvetica Neue', sans-serif;
+    font-family: 'Letters Torn', 'Helvetica Neue', sans-serif;
     font-size: clamp(140px, 22vw, 260px);
     font-weight: 900;
     letter-spacing: -0.05em;
@@ -115,7 +115,7 @@
     line-height: 1;
   }
   #cover .cover-title {
-    font-family: 'Letters Lavish', 'Helvetica Neue', sans-serif;
+    font-family: 'Letters Torn', 'Helvetica Neue', sans-serif;
     font-size: clamp(64px, 10vw, 130px);
     font-weight: 900;
     letter-spacing: -0.04em;
