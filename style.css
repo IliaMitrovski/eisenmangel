@@ -399,59 +399,39 @@
 
   /* ── CONTACT ── */
   #contact {
-    padding: 9rem 3rem 6rem;
+    padding: 4rem 3rem;
     background: #0a0a0a;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 80vh;
+    align-items: center;
+    min-height: 30vh;
     border-top: 0.5px solid rgba(240,236,228,0.05);
-    position: relative;
-    overflow: hidden;
   }
-  #contact .contact-bg {
-    position: absolute;
-    bottom: -0.1em;
-    left: -0.02em;
-    font-size: clamp(80px, 14vw, 180px);
-    font-weight: 900;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(240,236,228,0.05);
-    user-select: none;
-    pointer-events: none;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .contact-links {
+  .contact-row {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: relative;
-    z-index: 2;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    width: 100%;
   }
-  .contact-link {
-    font-size: clamp(22px, 3.2vw, 42px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  .contact-heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(28px, 3.6vw, 48px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.8rem;
+  }
+  .contact-value {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.04em;
     color: #f0ece4;
     text-decoration: none;
-    opacity: 0.65;
+    opacity: 0.6;
     transition: opacity 0.3s;
-    display: flex;
-    align-items: baseline;
-    gap: 1.2rem;
   }
-  .contact-link:hover { opacity: 1; }
-  .contact-link .cl-label {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    opacity: 0.4;
-    font-weight: 400;
-    min-width: 70px;
-  }
+  .contact-value:hover { opacity: 1; }
+  .contact-col:last-child { text-align: right; }
 
   footer {
     padding: 2rem 3rem;
