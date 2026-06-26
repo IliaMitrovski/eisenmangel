@@ -119,6 +119,14 @@
     pointer-events: none;
     line-height: 1;
   }
+  .bg-text-l {
+    display: inline-block;
+    margin-left: 0.18em;
+  }
+  .bg-text-a {
+    display: inline-block;
+    margin-left: 0.09em;
+  }
   #cover .cover-title {
     font-family: 'Bianzhidai Messy', 'itc-avant-garde-gothic-pro', 'Helvetica Neue', sans-serif;
     font-size: clamp(64px, 10vw, 130px);
@@ -129,11 +137,21 @@
     position: relative;
     z-index: 2;
   }
+  #cover .cover-title span { display: inline-block; }
+  /* Einzelne Buchstaben von "Portfolio" anpassen, z.B.:
+     #cover .cover-title span:nth-child(3) { margin-left: 0.1em; } verschiebt das "r" */
   #cover .cover-title .indent-1 { padding-left: clamp(40px, 7vw, 110px); }
   #cover .cover-title .indent-2 { padding-left: clamp(20px, 3.5vw, 55px); }
+  #cover .cover-title span:nth-child(2) { margin-left: 0.05em; }
+  #cover .cover-title span:nth-child(3) { margin-left: 0.12em; }
+  #cover .cover-title span:nth-child(4) { margin-left: 0.07em; }
+  #cover .cover-title span:nth-child(5) { margin-left: 0.07em;}
+  #cover .cover-title span:nth-child(6) { margin-left: 0.05em;}
+  #cover .cover-title span:nth-child(7) { margin-left: 0.2em; }
+  #cover .cover-title span:nth-child(9) { margin-left: 0.11em;}
   #cover .cover-sub {
     font-size: 11px;
-    letter-spacing: 0.32em;
+    letter-spacing: 1.7em;
     text-transform: uppercase;
     opacity: 0.35;
     margin-top: 2rem;
@@ -327,10 +345,25 @@
   .work-overlay.showing-detail .work-list { display: none; }
   .work-detail {
     display: none;
-    max-width: 720px;
+    max-width: 1000px;
     margin: 0 auto;
   }
-  .work-detail.active { display: block; }
+  .work-detail.active {
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .work-detail .work-back { flex: 0 0 100%; }
+  .work-detail .project-info { flex: 0 0 260px; }
+  .work-detail .project-hero { flex: 1 1 380px; min-width: 280px; }
+  .work-detail .project-hero img,
+  .work-detail .series-more img {
+    width: 100%;
+    margin: -1rem auto 0;
+  }
+  .work-detail .project-hero > img:first-child { margin-top: 0; }
   .work-back {
     background: none;
     border: none;
@@ -399,39 +432,59 @@
 
   /* ── CONTACT ── */
   #contact {
-    padding: 4rem 3rem;
+    padding: 9rem 3rem 6rem;
     background: #0a0a0a;
     display: flex;
-    align-items: center;
-    min-height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
     border-top: 0.5px solid rgba(240,236,228,0.05);
+    position: relative;
+    overflow: hidden;
   }
-  .contact-row {
+  #contact .contact-bg {
+    position: absolute;
+    bottom: -0.1em;
+    left: -0.02em;
+    font-size: clamp(80px, 14vw, 180px);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(240,236,228,0.05);
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .contact-links {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
   }
-  .contact-heading {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(28px, 3.6vw, 48px);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.8rem;
-  }
-  .contact-value {
-    display: block;
-    font-size: 13px;
-    letter-spacing: 0.04em;
+  .contact-link {
+    font-size: clamp(22px, 3.2vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: #f0ece4;
     text-decoration: none;
-    opacity: 0.6;
+    opacity: 0.65;
     transition: opacity 0.3s;
+    display: flex;
+    align-items: baseline;
+    gap: 1.2rem;
   }
-  .contact-value:hover { opacity: 1; }
-  .contact-col:last-child { text-align: right; }
+  .contact-link:hover { opacity: 1; }
+  .contact-link .cl-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    font-weight: 400;
+    min-width: 70px;
+  }
 
   footer {
     padding: 2rem 3rem;
