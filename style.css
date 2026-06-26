@@ -395,7 +395,6 @@
     object-fit: cover;
     filter: grayscale(15%);
     display: block;
-    order: 2;
   }
 
   /* ── CONTACT ── */
