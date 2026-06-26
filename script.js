@@ -1,9 +1,3 @@
-// ── PROJECT HERO GLITCH (chromatic aberration on hover) ──
-document.querySelectorAll('.project-hero').forEach(hero => {
-  const img = hero.querySelector('img');
-  if (img) hero.style.setProperty('--img-url', `url("${img.getAttribute('src')}")`);
-});
-
 // ── SERIES EXPAND ──
 document.querySelectorAll('.project-hero.series .series-cover').forEach(cover => {
   cover.addEventListener('click', () => {
@@ -21,13 +15,30 @@ function openWork(e) {
   workOverlay.classList.add('open');
 }
 function closeWork() {
-  workOverlay.classList.remove('open');
+  workOverlay.classList.remove('open', 'showing-detail');
+  document.querySelectorAll('.work-detail.active').forEach(d => d.classList.remove('active'));
+}
+function openDetail(id) {
+  document.querySelectorAll('.work-detail.active').forEach(d => d.classList.remove('active'));
+  const detail = document.getElementById('detail-' + id);
+  if (detail) detail.classList.add('active');
+  workOverlay.classList.add('showing-detail');
+}
+function backToList() {
+  workOverlay.classList.remove('showing-detail');
+  document.querySelectorAll('.work-detail.active').forEach(d => d.classList.remove('active'));
 }
 
 if (navWorkLink) navWorkLink.addEventListener('click', openWork);
 if (workClose) workClose.addEventListener('click', closeWork);
 document.querySelectorAll('.work-row').forEach(row => {
-  row.addEventListener('click', closeWork);
+  row.addEventListener('click', e => {
+    e.preventDefault();
+    openDetail(row.dataset.openDetail);
+  });
+});
+document.querySelectorAll('.work-back').forEach(btn => {
+  btn.addEventListener('click', backToList);
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeWork();
@@ -78,7 +89,7 @@ tick();
 
 // ── DOT NAV ──
 const dots = document.querySelectorAll('.dot');
-const sectionIds = ['cover', 'projects', 'about', 'contact'];
+const sectionIds = ['cover', 'about', 'contact'];
 const sections = sectionIds.map(id => document.getElementById(id));
 
 dots.forEach(dot => {
