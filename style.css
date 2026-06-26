@@ -347,37 +347,55 @@
   .work-back:hover { opacity: 1; }
 
   /* ── ABOUT ── */
-  #about {
-    padding: 9rem 3rem;
+  .about-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
     background: #0f0f0f;
+    padding: 3rem;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+  }
+  .about-overlay.open { opacity: 1; visibility: visible; }
+  .about-overlay #about-close {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+  }
+  .about-overlay-inner {
     display: flex;
     align-items: center;
-    min-height: 70vh;
-    border-top: 0.5px solid rgba(240,236,228,0.05);
+    justify-content: center;
+    gap: 5rem;
+    min-height: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
   }
-  .about-inner { max-width: 720px; }
-  .about-photo {
-    width: 220px;
-    height: 280px;
-    object-fit: cover;
-    filter: grayscale(15%);
-    margin-bottom: 2.5rem;
-    display: block;
-  }
-  .about-inner h2 {
-    font-size: clamp(44px, 6.5vw, 90px);
+  .about-text { max-width: 420px; }
+  .about-text h2 {
+    font-size: clamp(36px, 5.5vw, 72px);
     font-weight: 900;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     line-height: 0.92;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
-  .about-inner p {
+  .about-text p {
     font-size: 15px;
     line-height: 1.85;
-    opacity: 0.45;
-    max-width: 480px;
+    opacity: 0.5;
     font-weight: 300;
+  }
+  .about-photo {
+    width: min(38vw, 460px);
+    height: min(48vw, 580px);
+    object-fit: cover;
+    filter: grayscale(15%);
+    display: block;
+    order: 2;
   }
 
   /* ── CONTACT ── */

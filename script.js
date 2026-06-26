@@ -44,6 +44,25 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeWork();
 });
 
+// ── ABOUT OVERLAY ──
+const aboutOverlay = document.getElementById('about-overlay');
+const navAboutLink = document.getElementById('nav-about-link');
+const aboutClose = document.getElementById('about-close');
+
+function openAbout(e) {
+  if (e) e.preventDefault();
+  aboutOverlay.classList.add('open');
+}
+function closeAbout() {
+  aboutOverlay.classList.remove('open');
+}
+
+if (navAboutLink) navAboutLink.addEventListener('click', openAbout);
+if (aboutClose) aboutClose.addEventListener('click', closeAbout);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAbout();
+});
+
 // ── ANT CURSOR ──
 const ant = document.getElementById('ant-cursor');
 let mx = window.innerWidth / 2;

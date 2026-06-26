@@ -31,8 +31,8 @@
 <nav>
   <a href="#cover" class="logo">Ilia</a>
   <ul>
-    <li><a href="#projects" id="nav-work-link">Work</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#" id="nav-work-link">Work</a></li>
+    <li><a href="#" id="nav-about-link">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -232,24 +232,29 @@
 <!-- DOT NAV -->
 <div id="dot-nav">
   <div class="dot active" data-target="cover"></div>
-  <div class="dot" data-target="about"></div>
   <div class="dot" data-target="contact"></div>
 </div>
 
 <!-- ── COVER ── -->
 <section id="cover">
   <div class="bg-text">ILIA</div>
-</section>
-
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="about-inner">
-    <div class="section-label" style="margin-bottom:2.5rem">About</div>
-    <img class="about-photo" src="images/web/isar1.jpg" alt="Ilia">
-    <h2>Making<br>images<br>speak</h2>
-    <p>Ilia ist ein visueller Künstler mit Fokus auf digitale Photoshop-Collagen — Bilder, die Grenzen zwischen Realität und Vorstellung verschwimmen lassen.</p>
+  <div class="cover-title">
+    <div>Portfolio</div>
   </div>
 </section>
+
+<!-- ── ABOUT OVERLAY ── -->
+<div id="about-overlay" class="about-overlay">
+  <button id="about-close" class="work-close">Close</button>
+  <div class="about-overlay-inner">
+    <div class="about-text">
+      <div class="section-label" style="margin-bottom:2.5rem">About</div>
+      <h2>Making<br>images<br>speak</h2>
+      <p>Ilia ist ein visueller Künstler mit Fokus auf digitale Photoshop-Collagen — Bilder, die Grenzen zwischen Realität und Vorstellung verschwimmen lassen.</p>
+    </div>
+    <img class="about-photo" src="images/web/isar1.jpg" alt="Ilia">
+  </div>
+</div>
 
 <!-- ── CONTACT ── -->
 <section id="contact">
