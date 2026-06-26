@@ -1,7 +1,36 @@
-// ── PHOTO CARD GLITCH (chromatic aberration on hover) ──
-document.querySelectorAll('.photo-card').forEach(card => {
-  const img = card.querySelector('img');
-  if (img) card.style.setProperty('--img-url', `url("${img.getAttribute('src')}")`);
+// ── PROJECT HERO GLITCH (chromatic aberration on hover) ──
+document.querySelectorAll('.project-hero').forEach(hero => {
+  const img = hero.querySelector('img');
+  if (img) hero.style.setProperty('--img-url', `url("${img.getAttribute('src')}")`);
+});
+
+// ── SERIES EXPAND ──
+document.querySelectorAll('.project-hero.series .series-cover').forEach(cover => {
+  cover.addEventListener('click', () => {
+    cover.closest('.project-hero').classList.toggle('expanded');
+  });
+});
+
+// ── WORK OVERLAY ──
+const workOverlay = document.getElementById('work-overlay');
+const navWorkLink = document.getElementById('nav-work-link');
+const workClose = document.getElementById('work-close');
+
+function openWork(e) {
+  if (e) e.preventDefault();
+  workOverlay.classList.add('open');
+}
+function closeWork() {
+  workOverlay.classList.remove('open');
+}
+
+if (navWorkLink) navWorkLink.addEventListener('click', openWork);
+if (workClose) workClose.addEventListener('click', closeWork);
+document.querySelectorAll('.work-row').forEach(row => {
+  row.addEventListener('click', closeWork);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeWork();
 });
 
 // ── ANT CURSOR ──
@@ -46,31 +75,6 @@ function tick() {
   requestAnimationFrame(tick);
 }
 tick();
-
-// ── SCROLL SKEW ──
-const skewImgs = document.querySelectorAll('.skew-img');
-let lastScroll = window.scrollY;
-let skewTarget = 0;
-let skewCurrent = 0;
-let skewTimer = null;
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const delta = scrollY - lastScroll;
-  lastScroll = scrollY;
-  skewTarget = Math.max(-8, Math.min(8, delta * 0.18));
-  clearTimeout(skewTimer);
-  skewTimer = setTimeout(() => { skewTarget = 0; }, 150);
-}, { passive: true });
-
-function skewLoop() {
-  skewCurrent += (skewTarget - skewCurrent) * 0.12;
-  skewImgs.forEach(img => {
-    img.style.transform = `skewY(${skewCurrent.toFixed(3)}deg) scale(1.06)`;
-  });
-  requestAnimationFrame(skewLoop);
-}
-skewLoop();
 
 // ── DOT NAV ──
 const dots = document.querySelectorAll('.dot');
